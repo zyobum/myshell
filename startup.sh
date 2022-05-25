@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 source /opt/bash-utils/logger.sh
 
 function wait_for_process () {
@@ -33,5 +33,5 @@ for process in "${processes[@]}"; do
     fi
 done
 
-# Wait processes to be running
-su -
+#keep container running
+tail -f /dev/null
