@@ -1,12 +1,14 @@
 # Version 0.9.0
 FROM ubuntu
 LABEL maintainer="j@roc.one"
-ENV REFRESHED_AT 2022-05-25a
+ENV REFRESHED_AT 2022-05-26
 
 RUN apt update && apt install -y apt-utils && apt -y dist-upgrade && apt -y autoremove
 RUN echo y | unminimize
-RUN apt install -y zsh git dialog curl tmux
+RUN DEBIAN_FRONTEND=noninteractive apt install -y zsh git dialog curl tmux tzdata
 RUN chsh -s /bin/zsh
+RUN ln -fs /usr/share/zoneinfo/Asia/Taipei /etc/localtime
+RUN dpkg-reconfigure -f noninteractive tzdata
 
 #install on-my-zsh
 RUN cd ~ && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -19,8 +21,10 @@ RUN cp /tmp/aliases.zsh $HOME/.oh-my-zsh/custom ; rm /tmp/aliases.zsh
 # install powerlevel10k theme
 RUN git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
 RUN sed -i 's/^ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/1' $HOME/.zshrc
-COPY p10kconfig.zsh /tmp
+COPY p10kconfig.zsh gitstatus.zsh /tmp
 RUN chmod +x /tmp/p10kconfig.zsh ; /tmp/p10kconfig.zsh ; rm /tmp/p10kconfig.zsh
+#  first run to install gitstatusd
+RUN chmod +x /tmp/gitstatus.zsh ; /tmp/gitstatus.zsh
 
 # install required packages
 RUN apt update \

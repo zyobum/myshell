@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+
 source /opt/bash-utils/logger.sh
 
 function wait_for_process () {
