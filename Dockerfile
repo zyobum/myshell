@@ -25,6 +25,8 @@ COPY p10kconfig.zsh gitstatus.zsh /tmp
 RUN chmod +x /tmp/p10kconfig.zsh ; /tmp/p10kconfig.zsh ; rm /tmp/p10kconfig.zsh
 #  first run to install gitstatusd
 RUN chmod +x /tmp/gitstatus.zsh ; /tmp/gitstatus.zsh
+# disable gitstatus by default
+RUN echo "export POWERLEVEL9K_DISABLE_GITSTATUS=true" >> $HOME/.zshrc
 
 # install required packages
 RUN apt update \
