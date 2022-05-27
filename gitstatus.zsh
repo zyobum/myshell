@@ -1,4 +1,4 @@
-# /bin/zsh
+#!/bin/zsh
 delay="0.1"
 tmux new-session -d -s gitstatus
 tmux send-keys 'su -' C-m

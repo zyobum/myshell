@@ -1,4 +1,4 @@
-# /bin/zsha
+#!/bin/bash
 delay="0.1"
 tmux new-session -d -s p10k
 tmux send-keys 'p10k configure' C-m

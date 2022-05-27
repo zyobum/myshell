@@ -1,7 +1,7 @@
 # Version 0.9.0
 FROM ubuntu
 LABEL maintainer="j@roc.one"
-ENV REFRESHED_AT 2022-05-26
+ENV REFRESHED_AT 2022-05-27
 
 RUN apt update && apt install -y apt-utils && apt -y dist-upgrade && apt -y autoremove
 RUN echo y | unminimize
@@ -28,8 +28,7 @@ RUN chmod +x /tmp/gitstatus.zsh ; /tmp/gitstatus.zsh
 
 # install required packages
 RUN apt update \
-	&& apt install -y command-not-found qrencode man-db vim lsb-release ca-certificates gnupg iptables wget supervisor \
-	&& rm -rf /var/lib/apt/list/*
+	&& apt install -y command-not-found qrencode man-db vim lsb-release ca-certificates gnupg iptables wget supervisor
 
 #install docker and compose
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -43,7 +42,8 @@ COPY logger.sh /opt/bash-utils/logger.sh
 
 RUN chmod +x /usr/local/bin/startup.sh /usr/local/bin/modprobe
 VOLUME /var/lib/docker
-VOLUME /tmp
+
+RUN apt clean && rm -rf /var/lib/apt/lists
 
 CMD ["startup.sh"]
 
