@@ -3,9 +3,14 @@ FROM ubuntu
 LABEL maintainer="j@roc.one"
 ENV REFRESHED_AT 2022-05-27a
 
-RUN apt update && apt install -y apt-utils && apt -y dist-upgrade && apt -y autoremove
+RUN apt update && apt install -y apt-utils curl gpg && apt -y dist-upgrade && apt -y autoremove
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y apt-utils curl zsh git dialog tmux tzdata \
+  command-not-found qrencode man-db vim lsb-release ca-certificates gnupg iptables wget supervisor \
+  && apt -y dist-upgrade && apt -y autoremove
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 RUN echo y | unminimize
-RUN DEBIAN_FRONTEND=noninteractive apt install -y zsh git dialog curl tmux tzdata
+RUN apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 RUN chsh -s /bin/zsh
 RUN ln -fs /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 RUN dpkg-reconfigure -f noninteractive tzdata
@@ -27,15 +32,6 @@ RUN chmod +x /tmp/p10kconfig.zsh ; /tmp/p10kconfig.zsh ; rm /tmp/p10kconfig.zsh
 RUN chmod +x /tmp/gitstatus.zsh ; /tmp/gitstatus.zsh
 # disable gitstatus by default
 RUN echo "export POWERLEVEL9K_DISABLE_GITSTATUS=true" >> $HOME/.zshrc
-
-# install required packages
-RUN apt update \
-	&& apt install -y command-not-found qrencode man-db vim lsb-release ca-certificates gnupg iptables wget supervisor
-
-#install docker and compose
-RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-RUN apt update && apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 # setup init
 COPY modprobe startup.sh /usr/local/bin/
