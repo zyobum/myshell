@@ -1,7 +1,7 @@
-# Version 0.9.0
+# Version 0.9.5
 FROM ubuntu
 LABEL maintainer="j@roc.one"
-ENV REFRESHED_AT 2022-05-27
+ENV REFRESHED_AT 2022-05-27a
 
 RUN apt update && apt install -y apt-utils && apt -y dist-upgrade && apt -y autoremove
 RUN echo y | unminimize
