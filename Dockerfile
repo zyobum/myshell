@@ -5,7 +5,7 @@ ENV REFRESHED_AT 2022-05-27a
 
 RUN apt update && apt install -y apt-utils curl gpg && apt -y dist-upgrade && apt -y autoremove
 RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y apt-utils curl zsh git dialog tmux tzdata \
-  command-not-found qrencode man-db vim lsb-release ca-certificates gnupg iptables wget supervisor \
+  command-not-found qrencode man-db vim lsb-release ca-certificates gnupg iptables wget supervisor iputils-ping \
   && apt -y dist-upgrade && apt -y autoremove
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
