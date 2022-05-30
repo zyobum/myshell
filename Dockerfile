@@ -17,7 +17,7 @@ RUN dpkg-reconfigure -f noninteractive tzdata
 
 #install on-my-zsh
 RUN cd ~ && sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-RUN echo "source /etc/zsh_command_not_found" >> $HOME/.zshrc
+RUN echo "source /etc/zsh_command_not_found" >> $HOME/.zshrc ; sed -i '1s/^/umask 0077\n/' .zshrc ; chmod -R go-rwx $HOME
 
 # add aliases
 COPY aliases.zsh /tmp
