@@ -2,6 +2,8 @@
 FROM ubuntu
 LABEL maintainer="j@roc.one"
 ENV REFRESHED_AT 2022-05-29
+ENV GIT_USER jz
+ENV GIT_EMAIL j@roc.one
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
  ; apt-get update && apt-get install -y apt-utils dialog man-db curl gpg
@@ -42,6 +44,10 @@ COPY logger.sh /opt/bash-utils/logger.sh
 RUN chmod +x /usr/local/bin/startup.sh /usr/local/bin/modprobe
 VOLUME /var/lib/docker
 
+# Other settings
+RUN git config --global user.email $GIT_EMAIL && git config --global user.name $GIT_USER
+
+# Clean up
 RUN apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists
 
 CMD ["startup.sh"]
