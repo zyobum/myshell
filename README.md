@@ -8,7 +8,7 @@
          docker build -t="jayzhuang/shell" .
   1. Run the container:
 
-         docker run -itd --privileged --restart always --name myshell --mount type=bind,source=$HOME/.ssh,target=/root/.ssh --mount type=bind,source=$HOME/Downloads,target=/root/Downloads --mount type=bind,source=$HOME/workspace,target=/root/workspace jayzhuang/shell
+         docker run -d --privileged --restart always --name myshell --mount type=bind,source=$HOME/.ssh,target=/root/.ssh --mount type=bind,source=$HOME/Downloads,target=/root/Downloads --mount type=bind,source=$HOME/workspace,target=/root/workspace jayzhuang/shell
   1. Install fonts. Follow the instruction here: https://github.com/romkatv/powerlevel10k#manual-font-installation
 
   1. Run the Shell
