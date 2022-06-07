@@ -20,6 +20,7 @@ sudo apt-get install -y zsh
 sudo chsh -s /bin/zsh $USER
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 echo "source /etc/zsh_command_not_found" >> $HOME/.zshrc
+echo "export LC_ALL="en_GB.UTF-8" >> $HOME/.zshrc
 sed -i '1s/^/umask 0077\n/' $HOME/.zshrc
 chmod -R go-rwx $HOME
 
