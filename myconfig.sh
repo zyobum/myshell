@@ -6,6 +6,7 @@ GIT_EMAIL=j@roc.one
 cd $HOME
 umask 0077
 
+#install basic packages
 echo "* Installing basic packages"
 echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections
 sudo ln -fs /usr/share/zoneinfo/Asia/Taipei /etc/localtime
@@ -14,13 +15,18 @@ sudo apt-get update
 sudo apt-get -y dist-upgrade
 sudo apt-get -y install p7zip-full qrencode
 
+#basic confugrations
+LOC=en_GB.UTF-8
+export LC_ALL=$LOC
+sudo locale-gen $LOC
+sudo update-locale LANG=$LOC LC_ALL=$LOC
+
 #install on-my-zsh
 echo "* Install Oh-my-zsh"
 sudo apt-get install -y zsh
 sudo chsh -s /bin/zsh $USER
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 echo "source /etc/zsh_command_not_found" >> $HOME/.zshrc
-echo "export LC_ALL="en_GB.UTF-8" >> $HOME/.zshrc
 sed -i '1s/^/umask 0077\n/' $HOME/.zshrc
 chmod -R go-rwx $HOME
 
