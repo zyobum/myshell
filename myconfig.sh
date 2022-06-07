@@ -17,8 +17,8 @@ sudo apt-get -y install p7zip-full qrencode
 
 #basic confugrations
 LOC=en_GB.UTF-8
-export LC_ALL=$LOC
 sudo locale-gen $LOC
+export LC_ALL=$LOC
 sudo update-locale LANG=$LOC LC_ALL=$LOC
 
 #install on-my-zsh
