@@ -107,5 +107,4 @@ sudo apt-get autoremove
 
 echo "* Finished"
 
-# reboot for system updates
-sudo reboot
+echo "run 'limactl stop && limactl start' to reboot"

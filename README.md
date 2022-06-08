@@ -23,6 +23,9 @@
          limactl start
          lima ~/workspace/myshell/myconfig.sh
 
+  1. Reboot instance
+         limactl stop
+         limactl start
   1. Install fonts. Follow the instruction here: https://github.com/romkatv/powerlevel10k#manual-font-installation
 
   1. Run the Shell - In the preference page of the terminal, choose the desired profile - In the 'Startup' section of the 'Shell' tab, check 'Run command', 'Run inside shell' and set the following command:
