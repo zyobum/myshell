@@ -1,18 +1,29 @@
 # A ubuntu shell for macOS
 
   1. Clone the repository
+         git clone git@github.com:zyobum/shell.git ~/workspace/myshell
+  1. Install 'line'
+         brew install lima
+  1. Start new instance with pre-definedlib example:docker
+         limactl start --name=default template://docker
+  1. Factory-Reset the docker instance
+         limactl factory-reset docker
+  1. Modify mount points. Put following lines in the mount section of ~/.lima/default/lima.yaml
 
-         git clone git@github.com:zyobum/shell.git
-  1. Build the image
+     1. Remove "~" home folder
 
-         docker build -t="jayzhuang/shell" .
-  1. Run the container:
+     1. Add following mount point
+            - location: "~/.ssh"
+              writable: true
+            - location: "~/workspace"
+              writable: true
+            - location: "~/Downloads"
+              writable: true
+  1. Run setup script
+         limactl start
+         lima ~/workspace/myshell/myconfig.sh
 
-         docker run -d --privileged --restart always --name myshell --mount type=bind,source=$HOME/.ssh,target=/root/.ssh --mount type=bind,source=$HOME/Downloads,target=/root/Downloads --mount type=bind,source=$HOME/workspace,target=/root/workspace jayzhuang/shell
   1. Install fonts. Follow the instruction here: https://github.com/romkatv/powerlevel10k#manual-font-installation
 
-  1. Run the Shell
-    - In the preference page of the terminal, choose the desired profile
-    - In the 'Startup' section of the 'Shell' tab, check 'Run command','Run inside shell' and set the following command:
-
-           /usr/local/bin/docker exec -it $(/usr/local/bin/docker ps -lqf "name=myshell") su -
+  1. Run the Shell - In the preference page of the terminal, choose the desired profile - In the 'Startup' section of the 'Shell' tab, check 'Run command', 'Run inside shell' and set the following command:
+         /opt/homebrew/bin/limactl shell default
