@@ -46,3 +46,7 @@
    ```sh
    /opt/homebrew/bin/limactl shell default
    ```
+   or, in intel Mac,
+   ```sh
+   /usr/local/bin/limactl shell default
+   ```
