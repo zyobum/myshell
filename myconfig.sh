@@ -1,10 +1,12 @@
 #!/bin/bash
 #exit when any command fails
+echo "* Initial config"
 set -e
 GIT_USER=jz
 GIT_EMAIL=j@roc.one
 cd $HOME
 umask 0077
+chmod -R go-rwx $HOME
 
 #install basic packages
 echo "* Installing basic packages"
@@ -15,11 +17,12 @@ sudo apt-get update
 sudo apt-get -y dist-upgrade
 sudo apt-get -y install p7zip-full qrencode
 
-#basic confugrations
+#setup locale
+echo "* setup locale"
 LOC=en_GB.UTF-8
 sudo locale-gen $LOC
-export LC_ALL=$LOC
 sudo update-locale LANG=$LOC LC_ALL=$LOC
+#export LC_ALL=$LOC               # to fix, generating waring
 
 #install on-my-zsh
 echo "* Install Oh-my-zsh"
@@ -28,7 +31,6 @@ sudo chsh -s /bin/zsh $USER
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 echo "source /etc/zsh_command_not_found" >> $HOME/.zshrc
 sed -i '1s/^/umask 0077\n/' $HOME/.zshrc
-chmod -R go-rwx $HOME
 
 # add aliases
 echo "* Setup aliases"
