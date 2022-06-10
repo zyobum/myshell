@@ -4,9 +4,9 @@
    ```sh
    git clone git@github.com:zyobum/shell.git ~/workspace/myshell
    ```
-1. Install 'lima'
+1. Install 'lima' and required packages.
    ```sh
-   brew install lima
+   brew install lima jq
    ```
 1. Start new instance with pre-definedlib example:docker
    ```sh
