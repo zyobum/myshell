@@ -50,3 +50,8 @@
    ```sh
    /usr/local/bin/limactl shell default
    ```
+1. Setup up auto start. copy service plist to LaunchAgent folder and load it.
+   ```sh
+   cp ~/workspace/myshell/my.shell.lima.plist ~/Library/LaunchAgents/
+   launchctl load my.shell.lima.plist
+   ```
