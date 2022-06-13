@@ -7,6 +7,7 @@ GIT_EMAIL=j@roc.one
 cd $HOME
 umask 0077
 chmod -R go-rwx $HOME
+USERNAME=$(ls /Users/ | head -n 1)
 
 #install basic packages
 echo "* Installing basic packages"
@@ -102,9 +103,19 @@ echo "* Configure other settings"
 git config --global user.email $GIT_EMAIL
 git config --global user.name $GIT_USER
 
+# link to mounted workspace
+ln -s /Users/$USERNAME/workspace $HOME/
+ln -s /Users/$USERNAME/Downloads $HOME/
+
+#Copy ssh keys if exist
+if [ -d /Users/$USERNAME/.ssh/myshell_keys ]; then
+  echo "Copying ssh keys"
+  cp /Users/$USERNAME/.ssh/myshell_keys/* $HOME/.ssh/
+fi
+
 # Clean up
 sudo apt-get autoremove
 
-echo "* Finished"
-
-echo "run 'limactl stop && limactl start' to reboot"
+echo "* Finished, powering off"
+sleep 3
+sudo /usr/sbin/poweroff
