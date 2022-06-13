@@ -44,16 +44,7 @@
 
 1. Run the Shell - In the preference page of the terminal, choose the desired profile - In the 'Startup' section of the 'Shell' tab, check 'Run command', 'Run inside shell' and set the following command:
    ```sh
-   /opt/homebrew/bin/limactl shell default
-   ```
-   or, in intel Mac,
-   ```sh
-   /usr/local/bin/limactl shell default
-   ```
-1. Setup up auto start. copy service plist to LaunchAgent folder and load it.
-   ```sh
-   cp ~/workspace/myshell/my.shell.lima.plist ~/Library/LaunchAgents/
-   launchctl load my.shell.lima.plist
+   /bin/sh -c "$HOME/workspace/myshell/myshell.sh"
    ```
 
 + Note: _Do not use `sudo reboot` in the box, the mount points will lost. Use `sudo poweroff` and `limactl start` instead_
