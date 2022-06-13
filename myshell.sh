@@ -50,12 +50,12 @@ if [ "Stopped" = $STATUS ]; then
   sleep 1
 fi
 
-echo "Wait for ssh ready"
+#echo "Wait for ssh ready"
 wait_ssh_ready
 
-echo "Wait for instance ready"
+#echo "Wait for instance ready"
 wait_instance_ready
 
-echo "Starting shell"
+#echo "Starting shell"
 limactl shell default
 
