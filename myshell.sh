@@ -46,7 +46,8 @@ check_status
 if [ "Stopped" = $STATUS ]; then
   # restart it
   echo "Instance stopped. Starting instance"
-  limactl start default &
+  limactl start &
+  disown
   sleep 1
 fi
 
@@ -57,5 +58,5 @@ wait_ssh_ready
 wait_instance_ready
 
 #echo "Starting shell"
-limactl shell default
+lima
 
