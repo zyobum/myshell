@@ -1,13 +1,14 @@
 #!/bin/zsh
 source ~/.zshrc
 
-handle_error() {
-  echo "Error: line $1, exit code $2.\n Return to continue..."
-  read
-  exit 1
-}
-
-trap 'handle_error $LINENO $?' ERR
+#set -e
+#trap 'handle_error $? $LINENO' EXIT
+#handle_error() {
+#  if [ "$1" != "0" ]; then
+#    # error handling goes here
+#    echo "Exit with error $1 occurred on $2"
+#  fi
+#}
 
 INSHOME=$HOME/.lima/default
 
@@ -33,7 +34,7 @@ wait_ssh_ready () {
 wait_instance_ready () {
   while true; do
     local ready=$(tail -n1 ~/.lima/default/ha.stdout.log | jq .status.running)
-    if [ $ready ]; then
+    if [ true = $ready ]; then
       return 0
     fi
     sleep 2
@@ -44,14 +45,15 @@ check_status
 
 if [ "Stopped" = $STATUS ]; then
   # restart it
+  echo "Instance stopped. Starting instance"
   limactl start
   sleep 1
 fi
 
-echo "Wait for ssh"
+echo "Wait for ssh ready"
 wait_ssh_ready
 
-echo "Wait for instance startup"
+echo "Wait for instance ready"
 wait_instance_ready
 
 echo "Starting shell"
