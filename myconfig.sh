@@ -47,50 +47,69 @@ sed -i 's/^ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/1' 
 
 # config powerlevel10k
 echo "* Configure powerlevel10k"
-delay="0.1"
+delay="0.2"
 tmux new-session -d -s p10k
 tmux send-keys 'zsh --login' C-m
 sleep $delay
-tmux send-keys 'y' C-m
+tmux send-keys 'q'
 sleep $delay
-tmux send-keys 'y' C-m
+
+# wait for gitstatus installation
+sleep 2
+while true ; do
+  if [ -d $HOME/.cache/gitstatus ] ; then
+    break
+  fi
+  sleep 1
+done
+
+tmux send-keys 'TERM=xterm-256color' C-m
 sleep $delay
-tmux send-keys 'y' C-m
+tmux send-keys 'p10k configure' C-m
 sleep $delay
-tmux send-keys 'y' C-m
+tmux send-keys 'y'
 sleep $delay
-tmux send-keys '1' C-m
+tmux send-keys 'y'
 sleep $delay
-tmux send-keys '2' C-m
+tmux send-keys 'y'
 sleep $delay
-tmux send-keys '1' C-m
+tmux send-keys 'y'
 sleep $delay
-tmux send-keys '1' C-m
+tmux send-keys '1'
 sleep $delay
-tmux send-keys '2' C-m
+tmux send-keys '1'
 sleep $delay
-tmux send-keys '1' C-m
+tmux send-keys '1'
 sleep $delay
-tmux send-keys 'y' C-m
+tmux send-keys '2'
 sleep $delay
-tmux send-keys '1' C-m
+tmux send-keys '1'
 sleep $delay
-tmux send-keys 'y' C-m
+tmux send-keys '1'
 sleep $delay
+tmux send-keys '2'
+sleep $delay
+tmux send-keys '1'
+sleep $delay
+tmux send-keys 'y'
+sleep $delay
+tmux send-keys '1'
+sleep $delay
+tmux send-keys 'y'
+sleep $delay
+
 tmux send-keys 'tmux wait -S fin' C-m
 tmux send-keys 'exit' C-m
 tmux send-keys 'exit' C-m
 
 tmux wait fin
 
-if [ ! -r .p10k.zsh ]
-then
+if [ ! -r $HOME/.p10k.zsh ] ; then
         echo '- p10k config file generation failed'
         exit 1
 fi
 
-if [ ! -d $HOME/.cache/gitstatus/ ]
-then
+if [ ! -d $HOME/.cache/gitstatus/ ] ; then
         echo '- gitstatus init failed'
         exit 1
 fi
