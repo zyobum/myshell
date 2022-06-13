@@ -57,7 +57,7 @@ sleep $delay
 # wait for gitstatus installation
 sleep 2
 while true ; do
-  if [ -d $HOME/.cache/gitstatus ] ; then
+  if [ -d $HOME/.cache/gitstatus/ ] ; then
     break
   fi
   sleep 1
