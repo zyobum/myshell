@@ -22,7 +22,7 @@
 
    1. Add following mount point
       ```yaml
-      - location: "~/.ssh"
+      - location: "~/.ssh/myshell_keys"
         writable: true
       - location: "~/workspace"
         writable: true

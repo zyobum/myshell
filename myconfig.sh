@@ -114,8 +114,7 @@ if [ ! -d $HOME/.cache/gitstatus/ ] ; then
         exit 1
 fi
 
-echo "export POWERLEVEL9K_DISABLE_GITSTATUS=true" >> $HOME/.zshrc
-
+#echo "export POWERLEVEL9K_DISABLE_GITSTATUS=true" >> $HOME/.zshrc
 
 # Setup git global env
 echo "* Configure other settings"
