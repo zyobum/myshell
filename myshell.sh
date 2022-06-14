@@ -1,15 +1,7 @@
-#!/bin/zsh
+#!/bin/bash
 
 INSHOME=$HOME/.lima/default
-
-STATUS=""
-
-check_status () {
-  STATUS=$(limactl list default --json | jq .status)
-  local t="STATUS=$STATUS"
-  # remove double quote
-  eval $t
-}
+PATH=/opt/homebrew/bin:/usr/sbin:$PATH
 
 wait_ssh_ready () {
   while true; do
@@ -30,16 +22,6 @@ wait_instance_ready () {
     sleep 2
   done
 }
-
-check_status
-
-if [ "Stopped" = $STATUS ]; then
-  # restart it
-  echo "Instance stopped. Starting instance"
-  nohup limactl start &> /dev/null &
-  disown
-  sleep 1
-fi
 
 #echo "Wait for ssh ready"
 wait_ssh_ready

@@ -34,11 +34,14 @@
    limactl start
    lima ~/workspace/myshell/myconfig.sh
    ```
-
-1. Reboot instance
+1. Install login autostart
    ```sh
-   limactl stop
-   limactl start
+   ln -s ~/workspace/myshell/my.shell.lima.plist ~/Library/LaunchAgents/
+   launchctl load ~/Library/LaunchAgents/my.shell.lima.plist
+   ```
+1. Check instance status
+   ```sh
+   limactl list
    ```
 1. Install fonts for Terminal. Follow the instruction here: <https://github.com/romkatv/powerlevel10k#manual-font-installation>
 
@@ -48,3 +51,4 @@
    ```
 
 + Note: _Do not use `sudo reboot` in the box, the mount points will lost. Use `sudo poweroff` and `limactl start` instead_
++ Uninstall launch scripte: `launchctl remove my.shell.lima`

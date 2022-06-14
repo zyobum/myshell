@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>my.shell.lima</string>
+	<key>KeepAlive</key>
+	<dict>
+		<key>SuccessfulExit</key>
+		<false/>
+	</dict>
+	
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+		<string>-c</string>
+		<string>$HOME/workspace/myshell/shell_service.sh</string>
+	</array>
+
+        <key>RunAtLoad</key>
+	<true/>
+
+	<key>ProcessType</key>
+        <string>Asaptive</string>
+
+	<key>StandardErrorPath</key>
+        <string>/tmp/myshell_service.err</string>
+
+        <key>StandardOutPath</key>
+        <string>/tmp/myshell_service.out</string>
+</dict>
+</plist>
