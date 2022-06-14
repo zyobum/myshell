@@ -1,14 +1,4 @@
 #!/bin/zsh
-source ~/.zshrc
-
-#set -e
-#trap 'handle_error $? $LINENO' EXIT
-#handle_error() {
-#  if [ "$1" != "0" ]; then
-#    # error handling goes here
-#    echo "Exit with error $1 occurred on $2"
-#  fi
-#}
 
 INSHOME=$HOME/.lima/default
 
@@ -46,7 +36,7 @@ check_status
 if [ "Stopped" = $STATUS ]; then
   # restart it
   echo "Instance stopped. Starting instance"
-  nohup limactl start &
+  nohup limactl start &> /dev/null &
   disown
   sleep 1
 fi
