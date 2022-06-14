@@ -47,7 +47,7 @@
 
 1. Run the Shell - In the preference page of the terminal, choose the desired profile - In the 'Startup' section of the 'Shell' tab, check 'Run command', 'Run inside shell' and set the following command:
    ```sh
-   /bin/zsh -c "$HOME/workspace/myshell/myshell.sh"
+   /bin/bash -c "$HOME/workspace/myshell/myshell.sh"
    ```
 
 + Note: _Do not use `sudo reboot` in the box, the mount points will lost. Use `sudo poweroff` and `limactl start` instead_
