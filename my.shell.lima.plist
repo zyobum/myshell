@@ -21,7 +21,7 @@
 	<true/>
 
 	<key>ProcessType</key>
-        <string>Asaptive</string>
+        <string>Adaptive</string>
 
 	<key>StandardErrorPath</key>
         <string>/tmp/myshell_service.err</string>
