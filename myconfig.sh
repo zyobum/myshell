@@ -115,6 +115,7 @@ if [ ! -d $HOME/.cache/gitstatus/ ] ; then
 fi
 
 #echo "export POWERLEVEL9K_DISABLE_GITSTATUS=true" >> $HOME/.zshrc
+echo "cd ~/workspace" >> $HOME/.zshrc
 
 # Setup git global env
 echo "* Configure other settings"
