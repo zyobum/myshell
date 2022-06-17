@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+
 INS=default
 PATH=opt/homwbrew/bin:$PATH
 INSHOME=$HOME/.lima/$INS
@@ -15,19 +16,10 @@ fi
 #Commands
 #capabilities negotiation
 CMD_NEGO='{ "execute": "qmp_capabilities" }'
-CMD_MOUNT_RD4='
-{"execute":"device_add",
-  "arguments":{
-    "id":"pm3", 
-    "driver":"usb-host", 
-    "bus":"usb-bus.0", 
-    "vendorid":"0x9ac4",
-    "productid":"0x4b8f"
-  }
-}'
+CMD_MOUNT_RD4='{"execute":"device_del", "arguments":{"id":"pm3"}}'
 
-echo "Executing $0 ..."
+echo "Mounting devices..."
 echo -e "${CMD_NEGO}\n${CMD_MOUNT_RD4}" | socat - $QMPPORT
 
-echo "$0 finished"
+echo "Mount finished"
 

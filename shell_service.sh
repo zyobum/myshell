@@ -26,9 +26,9 @@ while true ; do
     # restart it
     echo "Instance stopped. Starting instance"
     limactl start
-    echo "Mount devices: $MOUNTDEV"
-    date > $OUT
-    $MOUNTDEV &> $OUT
+    #echo "Mount devices: $MOUNTDEV"
+    #date > $OUT
+    #$MOUNTDEV &> $OUT
   fi
   sleep 2
 done
