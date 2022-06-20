@@ -29,10 +29,14 @@
       - location: "~/Downloads"
         writable: true
       ```
+1. Append the following line in the `provision` `mode: user` section:
+   ```sh
+   /tmp/lima/myconfig.sh > /tmp/lima/myconfig.out 2>&1
+   ```
 1. Run setup script
    ```sh
+   ln -s ~/workspace/myshell/myconfig.sh /tmp/lima/
    limactl start
-   lima ~/workspace/myshell/myconfig.sh
    ```
 1. Install login autostart
    ```sh
