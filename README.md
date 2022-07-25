@@ -14,7 +14,7 @@
    ```
 1. Stop the docker instance
    ```sh
-   limactl stop
+   limactl factory-reset default
    ```
 1. Modify mount points. Put following lines in the mount section of `~/.lima/default/lima.yaml`
 
@@ -33,10 +33,9 @@
    ```sh
    /tmp/lima/myconfig.sh > /tmp/lima/myconfig.out 2>&1
    ```
-1. Run setup script
+1. Prepare setup script
    ```sh
    ln -s ~/workspace/myshell/myconfig.sh /tmp/lima/
-   limactl start
    ```
 1. Install login autostart
    ```sh
@@ -47,6 +46,14 @@
 1. Check instance status
    ```sh
    limactl list
+   ```
+1. Check the progress of provision
+   ```sh
+   tail -f /tmp/myshell_service.err
+   ```
+1. Check the progress of myconfig.sh
+   ```sh
+   tail -f /tmp/lima/myconfig.out
    ```
 1. Install fonts for Terminal. Follow the instruction here: <https://github.com/romkatv/powerlevel10k#manual-font-installation>
 
