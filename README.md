@@ -40,6 +40,7 @@
    ```
 1. Install login autostart
    ```sh
+   mkdir -p ~/Library/LaunchAgents
    ln -s ~/workspace/myshell/my.shell.lima.plist ~/Library/LaunchAgents/
    launchctl load ~/Library/LaunchAgents/my.shell.lima.plist
    ```
