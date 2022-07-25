@@ -1,8 +1,16 @@
 #!/bin/bash
 
 set -e
+BREW_M1_PATH=/opt/homebrew/bin
+BREW_X86_PATH=/usr/local/bin
 
-PATH=/opt/homebrew/bin:/usr/sbin:$PATH
+if [ -d "$BREW_M1_PATH" ]; then
+  BREW_PATH=$BREW_M1_PATH
+else
+  BREW_PATH=$BREW_X86_PATH
+fi
+
+PATH=$BREW_PATH:/usr/sbin:$PATH
 
 STATUS=""
 
