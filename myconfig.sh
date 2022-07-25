@@ -127,9 +127,9 @@ ln -s /Users/$USERNAME/workspace $HOME/
 ln -s /Users/$USERNAME/Downloads $HOME/
 
 #Copy ssh keys if exist
-if [ -d /Users/$USERNAME/.ssh/myshell_keys ]; then
+if [ -d "/Users/$USERNAME/.ssh/myshell_keys" ]; then
   echo "Copying ssh keys"
-  cp /Users/$USERNAME/.ssh/myshell_keys/* $HOME/.ssh/
+  cp /Users/$USERNAME/.ssh/myshell_keys/* $HOME/.ssh/ || true
 fi
 
 # Clean up
