@@ -57,7 +57,7 @@
    ```
 1. Install fonts for Terminal. Follow the instruction here: <https://github.com/romkatv/powerlevel10k#manual-font-installation>
 
-1. Run the Shell - In the preference page of the terminal, choose the desired profile - In the 'Startup' section of the 'Shell' tab, check 'Run command', 'Run inside shell' and set the following command:
+1. Run the Shell - In the preference page of the terminal, choose the desired profile - In the 'Startup' section of the 'Shell' tab, check 'Run command' and set the following command:
    ```sh
    /bin/bash -c "$HOME/workspace/myshell/myshell.sh"
    ```
