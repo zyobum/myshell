@@ -31,7 +31,7 @@
       ```
 1. Append the following line in the `provision` `mode: user` section:
    ```sh
-   /tmp/lima/myconfig.sh > /tmp/lima/myconfig.out 2>&1
+   curl -sfL https://github.com/zyobum/shell/raw/main/myconfig.sh | bash -s -
    ```
 1. Prepare setup script
    ```sh
