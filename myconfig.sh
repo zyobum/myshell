@@ -7,7 +7,7 @@ GIT_EMAIL=j@roc.one
 cd $HOME
 umask 0077
 chmod -R go-rwx $HOME
-HOSTUSERNAME=$1
+HOSTUSERNAME=$(ls /Users/ | head -n 1)
 echo "Host USERNAME=$HOSTUSERNAME"
 
 #install basic packages
