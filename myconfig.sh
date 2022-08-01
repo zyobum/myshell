@@ -99,6 +99,7 @@ sleep $delay
 tmux send-keys 'y'
 sleep $delay
 
+sleep 2
 tmux send-keys 'tmux wait -S fin' C-m
 tmux send-keys 'exit' C-m
 tmux send-keys 'exit' C-m
