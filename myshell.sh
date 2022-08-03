@@ -1,7 +1,14 @@
 #!/bin/bash
 
 INSHOME=$HOME/.lima/default
-PATH=/opt/homebrew/bin:/usr/sbin:$PATH
+BREWHOME="/usr/local/bin"
+MACBREWHOME="/opt/homebrew/bin"
+
+if [ -d "$MACBREWHOME" ]; then	
+    BREWHOME="$MACBREWHOME"
+fi
+
+PATH=${BREWHOME}:/usr/sbin:$PATH
 
 wait_ssh_ready () {
   while true; do

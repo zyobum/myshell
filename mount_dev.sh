@@ -2,7 +2,14 @@
 
 set -e
 INS=default
-PATH=opt/homwbrew/bin:$PATH
+BREWHOME="/usr/local/bin"
+MACBREWHOME="/opt/homebrew/bin"
+
+if [ -d "$MACBREWHOME" ]; then	
+    BREWHOME="$MACBREWHOME"
+fi
+
+PATH=${BREWHOME}:$PATH
 INSHOME=$HOME/.lima/$INS
 QMPSOCK=$INSHOME/qmp.sock
 QMPPORT="UNIX-CONNECT:$QMPSOCK"
