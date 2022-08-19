@@ -28,7 +28,7 @@ sudo update-locale LANG=$LOC LC_ALL=$LOC
 
 #install on-my-zsh
 echo "* Install Oh-my-zsh"
-sudo apt-get install -y zsh
+sudo apt-get install -y zsh x11-apps
 sudo chsh -s /bin/zsh $USER
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 echo "source /etc/zsh_command_not_found" >> $HOME/.zshrc
