@@ -29,6 +29,13 @@
       - location: "~/Downloads"
         writable: true
       ```
+1. Append the following lines after the `mount` section:
+   ```yaml
+   ssh:
+   forwardAgent: true
+   forwardX11: true
+   forwardX11Trusted: true
+   ```
 1. Append the following line in the `provision` `mode: user` section:
    ```sh
    curl -sfL https://github.com/zyobum/shell/raw/main/myconfig.sh | bash -s - > /tmp/lima/myconfig.out 2>&1
