@@ -40,6 +40,10 @@
    ```sh
    curl -sfL https://github.com/zyobum/shell/raw/main/myconfig.sh | bash -s - > /tmp/lima/myconfig.out 2>&1
    ```
+1. Append the following line in the `message` section:
+   ```
+   Install Quartz for X11 support.
+   ```
 1. Prepare setup script
    ```sh
    ln -s ~/workspace/myshell/myconfig.sh /tmp/lima/
