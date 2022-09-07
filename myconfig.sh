@@ -37,7 +37,7 @@ sed -i '1s/^/umask 0077\n/' $HOME/.zshrc
 # add aliases
 echo "* Setup aliases"
 echo "alias ll='ls -alF'
-alias u='sudo apt-get update && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get update && omz update'
+alias u='sudo apt-get update && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get update && omz update && (cd ~/.oh-my-zsh/custom/themes/powerlevel10k ; git pull)'
 alias qrencode='qrencode -t ansiutf8 -r'
 " > $HOME/.oh-my-zsh/custom/aliases.zsh
 
