@@ -33,6 +33,7 @@ sudo chsh -s /bin/zsh $USER
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 echo "source /etc/zsh_command_not_found" >> $HOME/.zshrc
 sed -i '1s/^/umask 0077\n/' $HOME/.zshrc
+echo '[[ $(uname -m) == "aarch64" ]] && export DOCKER_DEFAULT_PLATFORM=linux/amd64' >> $HOME/.zshrc
 
 # add aliases
 echo "* Setup aliases"
