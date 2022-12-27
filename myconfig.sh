@@ -18,6 +18,8 @@ sudo dpkg-reconfigure -f noninteractive tzdata
 sudo apt-get update
 sudo apt-get -y dist-upgrade
 sudo apt-get -y install p7zip-full qrencode make build-essential
+sudo apt-get -y docker-compose
+sudo apt-get -y magemagick ffmpeg
 
 #setup locale
 echo "* setup locale"
