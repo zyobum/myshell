@@ -44,10 +44,6 @@
    ```
    Install Quartz for X11 support.
    ```
-1. Prepare setup script
-   ```sh
-   ln -s ~/workspace/myshell/myconfig.sh /tmp/lima/
-   ```
 1. Install login autostart
    ```sh
    mkdir -p ~/Library/LaunchAgents
