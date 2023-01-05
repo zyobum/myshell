@@ -44,12 +44,6 @@
    ```
    Install Quartz for X11 support.
    ```
-1. Install login autostart
-   ```sh
-   mkdir -p ~/Library/LaunchAgents
-   ln -s ~/workspace/myshell/my.shell.lima.plist ~/Library/LaunchAgents/
-   launchctl load ~/Library/LaunchAgents/my.shell.lima.plist
-   ```
 1. Check instance status
    ```sh
    limactl list
@@ -62,11 +56,25 @@
    ```sh
    tail -f /tmp/lima/myconfig.out
    ```
+1. If lima instance status became 'borken'
+   ```sh
+   limactl stip -f default
+   ```
 1. Install fonts for Terminal. Follow the instruction here: <https://github.com/romkatv/powerlevel10k#manual-font-installation>
+1. Test myshell
+   ```sh
+   lima
+   ```
 
 1. Run the Shell - In the preference page of the terminal, choose the desired profile - In the 'Startup' section of the 'Shell' tab, check 'Run command' and set the following command:
    ```sh
    /bin/bash -c "$HOME/workspace/myshell/myshell.sh"
+   ```
+1. Install login autostart
+   ```sh
+   mkdir -p ~/Library/LaunchAgents
+   ln -s ~/workspace/myshell/my.shell.lima.plist ~/Library/LaunchAgents/
+   launchctl load ~/Library/LaunchAgents/my.shell.lima.plist
    ```
 
 + Note: _Do not use `sudo reboot` in the box, the mount points will lost. Use `sudo poweroff` and `limactl start` instead_
