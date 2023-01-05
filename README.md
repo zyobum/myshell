@@ -63,6 +63,7 @@
 1. Install fonts for Terminal. Follow the instruction here: <https://github.com/romkatv/powerlevel10k#manual-font-installation>
 1. Test myshell
    ```sh
+   limactl start default
    lima
    ```
 
