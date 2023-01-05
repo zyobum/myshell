@@ -19,7 +19,7 @@ sudo apt-get update
 sudo apt-get -y dist-upgrade
 sudo apt-get -y install p7zip-full qrencode make build-essential
 sudo apt-get -y install docker-compose
-sudo apt-get -y install magemagick ffmpeg
+sudo apt-get -y install imagemagick ffmpeg
 
 #setup locale
 echo "* setup locale"
