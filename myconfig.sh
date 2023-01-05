@@ -141,5 +141,4 @@ fi
 sudo apt-get autoremove
 
 echo "* Finished, powering off"
-sleep 3
-sudo /usr/sbin/poweroff
+(sleep 3 && sudo /usr/sbin/poweroff) &
