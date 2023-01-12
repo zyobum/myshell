@@ -71,12 +71,7 @@
    ```sh
    /bin/bash -c "$HOME/workspace/myshell/myshell.sh"
    ```
-1. Install login autostart
-   ```sh
-   mkdir -p ~/Library/LaunchAgents
-   ln -s ~/workspace/myshell/my.shell.lima.plist ~/Library/LaunchAgents/
-   launchctl load ~/Library/LaunchAgents/my.shell.lima.plist
-   ```
+1. Install login autostart. copy 'Startup.cmd' to home directory and assign it as login item.
 
 + Note: _Do not use `sudo reboot` in the box, the mount points will lost. Use `sudo poweroff` and `limactl start` instead_
 + Uninstall launch scripte: `launchctl remove my.shell.lima`
