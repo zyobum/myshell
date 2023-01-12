@@ -37,5 +37,6 @@ wait_ssh_ready
 wait_instance_ready
 
 #echo "Starting shell"
-lima
+#lima    # X11Forward not working
+ssh -o "IdentityFile=\"~/.lima/_config/user\"" -o User=lima -o ForwardAgent=yes -o Hostname=127.0.0.1 -o Port=60022 lima-default -Y
 
