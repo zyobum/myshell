@@ -75,3 +75,4 @@
 
 + Note: _Do not use `sudo reboot` in the box, the mount points will lost. Use `sudo poweroff` and `limactl start` instead_
 + Uninstall launch scripte: `launchctl remove my.shell.lima`
++ known issue: The initialization seems not finished. when shutdown, instance enter 'Borken' state.
