@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 set -e
 BREW_M1_PATH=/opt/homebrew/bin
@@ -32,7 +32,7 @@ while true ; do
   if [ "Stopped" = $STATUS ]; then
     # restart it
     echo "Instance stopped. Starting instance"
-    limactl start
+    limactl start default
   fi
   sleep 2
 done
