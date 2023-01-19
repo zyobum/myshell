@@ -140,5 +140,4 @@ fi
 # Clean up
 sudo apt-get autoremove
 
-echo "* Finished, powering off"
-(sleep 6 && sudo /usr/sbin/poweroff) &
+echo "* Finished, use \"limactl stop\" and \"limactl start\" to reboot"

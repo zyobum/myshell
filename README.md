@@ -58,7 +58,7 @@
    ```
 1. If lima instance status became 'borken'
    ```sh
-   limactl stip -f default
+   limactl stop -f default
    ```
 1. Install fonts for Terminal. Follow the instruction here: <https://github.com/romkatv/powerlevel10k#manual-font-installation>
 1. Test myshell
@@ -73,6 +73,6 @@
    ```
 1. Install login autostart. copy 'Startup.cmd' to home directory and assign it as login item.
 
-+ Note: _Do not use `sudo reboot` in the box, the mount points will lost. Use `sudo poweroff` and `limactl start` instead_
++ Note: _Do not use `sudo reboot` in the box, the mount points will lost. Use `limactl stop` and `limactl start` instead._
 + Uninstall launch scripte: `launchctl remove my.shell.lima`
-+ known issue: The initialization seems not finished. when shutdown, instance enter 'Borken' state.
++ known issue: `shutdown` or `poweroff` cause the vm to 'Borken' state.
