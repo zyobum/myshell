@@ -1,5 +1,5 @@
---- lima.yaml	2023-01-30 17:10:27
-+++ target	2023-01-30 17:35:15
+--- lima.yaml	2023-01-30 19:16:27
++++ target	2023-01-30 19:16:15
 @@ -37,9 +37,20 @@
    arch: "aarch64"
  
@@ -33,8 +33,9 @@
  probes:
  - script: |
      #!/bin/bash
-@@ -98,3 +113,4 @@
+@@ -98,3 +113,5 @@
    docker context use lima-{{.Name}}
    docker run hello-world
    ------
++  Restart the instance to finish the provisioning by 'limactl stop default && limactl start default'
 +  Install Quartz for X11 support.
