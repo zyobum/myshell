@@ -33,15 +33,18 @@
    ```yaml
    ssh:
      forwardAgent: true
-     forwardX11: true
      forwardX11Trusted: true
    ```
-1. Append the following line in the `provision` `mode: user` section:
-   ```sh
-   curl -sfL https://github.com/zyobum/shell/raw/main/myconfig.sh | bash -s - > /tmp/lima/myconfig.out 2>&1
+1. Append new script in the `provision` section:
+   ```yaml
+   - mode: user
+     script: |
+       #!/bin/bash
+       curl -sfL https://github.com/zyobum/shell/raw/main/myconfig.sh | bash -s - > /tmp/lima/myconfig.out 2>&1
    ```
 1. Append the following line in the `message` section:
    ```
+   Restart the instance to finish the provisioning by 'limactl stop default && limactl start default'
    Install Quartz for X11 support.
    ```
 1. Check instance status
@@ -71,8 +74,7 @@
    ```sh
    /bin/bash -c "$HOME/workspace/myshell/myshell.sh"
    ```
-1. Install login autostart. copy 'Startup.cmd' to home directory and assign it as login item.
+1. Install login autostart. copy 'Startup.sh' to home directory and assign it as a login item in the setting pane.
 
 + Note: _Do not use `sudo reboot` in the box, the mount points will lost. Use `limactl stop` and `limactl start` instead._
-+ Uninstall launch scripte: `launchctl remove my.shell.lima`
 + known issue: `shutdown` or `poweroff` cause the vm to 'Borken' state.
