@@ -20,6 +20,8 @@ sudo apt-get -y dist-upgrade
 sudo apt-get -y install p7zip-full qrencode make build-essential
 sudo apt-get -y install docker-compose
 sudo apt-get -y install imagemagick ffmpeg
+sudo apt-get -y install python-is-python3 python3-pip
+pip install virtualenv
 
 #setup locale
 echo "* setup locale"
@@ -43,6 +45,11 @@ echo "alias ll='ls -alF'
 alias u='sudo apt-get update && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get update && omz update && (cd ~/.oh-my-zsh/custom/themes/powerlevel10k ; git pull)'
 alias qrencode='qrencode -t ansiutf8 -r'
 " > $HOME/.oh-my-zsh/custom/aliases.zsh
+
+# patch login profile
+echo "emulate sh -c '. ~/.profile'" >> $HOME/.zprofile
+# filter duplicate path entries
+echo $'export PATH="$(perl -e \'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))\')"' >> $HOME/.zshrc
 
 # install powerlevel10k theme
 echo "* Install powerlevel10k"
