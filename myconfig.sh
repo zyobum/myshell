@@ -20,7 +20,7 @@ sudo apt-get -y dist-upgrade
 sudo apt-get -y install p7zip-full qrencode make build-essential
 sudo apt-get -y install docker-compose
 sudo apt-get -y install imagemagick ffmpeg
-sudo apt-get -y install python-is-python3 python3-pip python3-venv
+sudo apt-get -y install python-is-python3 python3-pip python3-venv pythonpy
 pip install --upgrade pip
 pip install virtualenv
 
