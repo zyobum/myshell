@@ -40,6 +40,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 echo "source /etc/zsh_command_not_found" >> $HOME/.zshrc
 sed -i '1s/^/umask 0077\n/' $HOME/.zshrc
 echo '[[ $(uname -m) == "aarch64" ]] && export DOCKER_DEFAULT_PLATFORM=linux/arm64' >> $HOME/.zshrc
+echo 'export XAUTHORITY=$HOME/.Xauthority' >> $HOME/.zshrc
 
 # add aliases
 echo "* Setup aliases"
