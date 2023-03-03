@@ -15,7 +15,6 @@ echo "* Installing basic packages"
 echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections
 sudo ln -fs /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 sudo dpkg-reconfigure -f noninteractive tzdata
-sudo apt -o APT::Get::Always-Include-Phased-Updates=true upgrade
 sudo apt-get update
 sudo apt-get -y dist-upgrade
 sudo apt-get -y install p7zip-full qrencode make build-essential
