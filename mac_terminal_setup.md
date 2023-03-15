@@ -30,12 +30,6 @@ echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zs
 ```
 * Import terminal profiles.
 
-## docker
-```bash
-brew install docker
-docker context create lima-default --docker "host=unix://$HOME/.lima/default/sock/docker.sock"
-docker context use lima-default
-```
 ## misc packages
 ```bash
 brew install qrencode p7zip RfidResearchGroup/proxmark3/proxmark3
@@ -47,3 +41,9 @@ git config --global user.name "jz"
 ```
 ## linux shell
 Read more [here](./README.md)
+## docker
+```bash
+brew install docker
+docker context create lima-default --docker "host=unix://$HOME/.lima/default/sock/docker.sock"
+docker context use lima-default
+```
