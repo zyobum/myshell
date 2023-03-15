@@ -5,6 +5,10 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 ## terminal
+* change system name
+```bash
+sudo scutil --set HostName <new host name> 
+```
 * oh-my-zsh
 ```bash
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
