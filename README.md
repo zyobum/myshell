@@ -49,6 +49,10 @@ read more [here](./mac_terminal_setup.md)
    Restart the instance to finish the provisioning by 'limactl stop default && limactl start default'
    Install Quartz for X11 support.
    ```
+1. start instance
+   ```sh
+   limactl start default
+   ```
 1. Check instance status
    ```sh
    limactl list
