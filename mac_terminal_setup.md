@@ -32,7 +32,8 @@ echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zs
 
 ## misc packages
 ```bash
-brew install qrencode p7zip RfidResearchGroup/proxmark3/proxmark3
+brew install qrencode p7zip glow RfidResearchGroup/proxmark3/proxmark3 ffmpeg xeyes
+brew install --cash xquartz insomnia
 ```
 * Misc configuration
 ```bash
