@@ -1,4 +1,6 @@
 # A ubuntu shell for macOS
+1. Setup mac terminal.
+read more [here](./mac_terminal_setup.md)
 
 1. Clone the repository
    ```sh
