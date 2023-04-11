@@ -49,6 +49,10 @@ read more [here](./mac_terminal_setup.md)
    Restart the instance to finish the provisioning by 'limactl stop default && limactl start default'
    Install Quartz for X11 support.
    ```
+1. start instance
+   ```sh
+   limactl start default
+   ```
 1. Check instance status
    ```sh
    limactl list
@@ -76,7 +80,7 @@ read more [here](./mac_terminal_setup.md)
    ```sh
    /bin/bash -c "$HOME/workspace/myshell/myshell.sh"
    ```
-1. Install login autostart. copy 'Startup.sh' to home directory and assign it as a login item in the setting pane.
+1. Install login autostart. copy 'Startup.sh' to home directory and assign it as a login item in the setting pane. <https://stackoverflow.com/questions/6442364/running-script-upon-login-in-mac-os-x>
 
 + Note: _Do not use `sudo reboot` in the box, the mount points will lost. Use `limactl stop` and `limactl start` instead._
 + known issue: `shutdown` or `poweroff` cause the vm to 'Borken' state.

@@ -5,6 +5,10 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 ## terminal
+* change system name
+```bash
+sudo scutil --set HostName <new host name> 
+```
 * oh-my-zsh
 ```bash
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -32,8 +36,8 @@ echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zs
 
 ## misc packages
 ```bash
-brew install qrencode p7zip glow RfidResearchGroup/proxmark3/proxmark3 ffmpeg xeyes
-brew install --cash xquartz insomnia pulsar
+brew install --cask xquartz insomnia pulsar
+brew install qrencode p7zip glow RfidResearchGroup/proxmark3/proxmark3 ffmpeg
 ```
 * Misc configuration
 ```bash
