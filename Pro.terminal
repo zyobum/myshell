@@ -50,7 +50,7 @@
 	eYCMjpCVoKmxtAAAAAAAAAEBAAAAAAAAABkAAAAAAAAAAAAAAAAAAAC9
 	</data>
 	<key>SetLanguageEnvironmentVariables</key>
-	<false/>
+	<true/>
 	<key>ShowActiveProcessInTabTitle</key>
 	<true/>
 	<key>ShowWindowSettingsNameInTitle</key>
