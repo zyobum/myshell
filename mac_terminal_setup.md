@@ -19,13 +19,9 @@ alias ll='ls -alFG'
 alias ubrew='brew autoremove && brew cleanup && brew update && brew upgrade && brew cleanup && brew autoremove && brew cleanup && brew doctor && omz update && (cd ~/.oh-my-zsh/custom/themes/powerlevel10k ; git pull)'
 alias qrencode='qrencode -t ansi256utf8 -r'
 ```
-* MesloLGS NF Fonts
+* JetBrains NF Fonts
 ```bash
-brew install homebrew/cask-fonts/font-meslo-lg-nerd-font
-```
-or
-```
-https://github.com/romkatv/powerlevel10k/blob/master/font.md
+brew install font-jetbrains-mono-nerd-font
 ```
  * powerlevel10k
 ```bash
