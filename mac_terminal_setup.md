@@ -21,11 +21,12 @@ alias qrencode='qrencode -t ansi256utf8 -r'
 ```
 * JetBrains NF Fonts
 ```bash
+brew tap homebrew/cask-fonts
 brew install font-jetbrains-mono-nerd-font
 ```
  * powerlevel10k
 ```bash
-brew install romkatv/powerlevel10k/powerlevel10k
+brew install powerlevel10k
 echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
 ```
 * Import terminal profiles.
