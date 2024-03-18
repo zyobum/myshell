@@ -31,6 +31,14 @@ git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$H
 ```
 Set ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc.
 ```
+ * zsh-autosuggestion
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+edit .zshrc
+```
+plugins=(git zsh-autosuggestions)
+```
 * Import terminal profiles.
 
 ## misc packages
