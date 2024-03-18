@@ -16,7 +16,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 * add ~/.oh-my-zsh/custom/aliases.zsh
 ```bash
 alias ll='ls -alFG'
-alias ubrew='brew autoremove && brew cleanup && brew update && brew upgrade && brew cleanup && brew autoremove && brew cleanup && brew doctor && omz update && (cd ~/.oh-my-zsh/custom/themes/powerlevel10k ; git pull)'
+alias ubrew='brew autoremove && brew cleanup && brew update && brew upgrade && brew cleanup && brew autoremove && brew cleanup ; brew doctor ; omz update ; for d in ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/*; do (cd "$d" && git pull); done'
 alias qrencode='qrencode -t ansi256utf8 -r'
 ```
 * JetBrains NF Fonts
