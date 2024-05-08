@@ -1,5 +1,37 @@
 # mac terminal setup
 
+## github
+modify .zshrc
+```bash
+umask 0077
+```
+change mode
+```bash
+chmod -R go-rwx .
+```
+gen key
+```bash
+mkdir .ssh
+chmod go-rwx .ssh
+cd .ssh
+ssh-key-gen -b 256 -t ed25519
+```
+.ssh/config
+```bash
+GSSAPIAuthentication no
+ForwardX11Trusted yes
+ForwardX11 yes
+ServerAliveInterval 300
+ServerAliveCountMax 3
+ForwardAgent yes
+
+Host github.com
+	HostName github.com
+	IdentityFile ~/.ssh/id_ed25519
+	IdentitiesOnly yes
+	User git
+```
+
 ## homebrew
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
