@@ -22,8 +22,8 @@ sudo apt-get -y install docker-compose
 sudo apt-get -y install imagemagick ffmpeg
 sudo apt-get -y install python-is-python3 python3-pip python3-venv pythonpy
 sudo apt-get -y remove python-dbus
-pip install --upgrade pip
-pip install virtualenv
+#python3 -m pip install --upgrade pip
+#python3 -m pip install virtualenv
 
 #setup locale
 echo "* setup locale"
@@ -87,17 +87,21 @@ tmux send-keys 'y'
 sleep $delay
 tmux send-keys 'y'
 sleep $delay
-tmux send-keys 'y'
+tmux send-keys 'n'
 sleep $delay
 tmux send-keys 'y'
 sleep $delay
 tmux send-keys '1'
 sleep $delay
+tmux send-keys 'n'
+sleep $delay
+tmux send-keys '1'
+sleep $delay
 tmux send-keys '1'
 sleep $delay
 tmux send-keys '1'
 sleep $delay
-tmux send-keys '2'
+tmux send-keys 'n'
 sleep $delay
 tmux send-keys '1'
 sleep $delay
@@ -115,6 +119,7 @@ tmux send-keys 'y'
 sleep $delay
 
 sleep 2
+tmux send-keys '' C-m
 tmux send-keys 'tmux wait -S fin' C-m
 tmux send-keys 'exit' C-m
 tmux send-keys 'exit' C-m
