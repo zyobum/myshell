@@ -46,7 +46,7 @@ echo 'export XAUTHORITY=$HOME/.Xauthority' >> $HOME/.zshrc
 echo "* Setup aliases"
 ALIAS=$HOME/.oh-my-zsh/custom/aliases.zsh
 echo "alias ll='ls -alF'
-alias u='sudo apt-get update && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get update && omz update && (cd ~/.oh-my-zsh/custom/themes/powerlevel10k ; git pull)'
+alias u='sudo apt update && sudo apt -y full-upgrade && sudo apt -y autoremove ; omz update ; (cd ~/.oh-my-zsh/custom/themes/powerlevel10k ; git pull)'
 alias qrencode='qrencode -t ansiutf8 -r'
 " > $ALIAS
 echo -e "alias upip=\"pip3 list -o | cut -f1 -d' ' | tr \\\" \\\" \\\"\\\\\\\n\\\" | awk '{if(NR>=3)print}' | cut -d' ' -f1 | xargs -n1 pip3 install -U\"" >> $ALIAS
