@@ -16,7 +16,8 @@ echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selecti
 sudo ln -fs /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 sudo dpkg-reconfigure -f noninteractive tzdata
 sudo apt-get update
-sudo apt-get -y dist-upgrade
+sudo apt purge ubuntu-pro-client
+sudo apt-get -y full-upgrade
 sudo apt-get -y install p7zip-full qrencode make build-essential tmux
 sudo apt-get -y install docker-compose
 sudo apt-get -y install imagemagick ffmpeg
@@ -46,7 +47,7 @@ echo 'export XAUTHORITY=$HOME/.Xauthority' >> $HOME/.zshrc
 echo "* Setup aliases"
 ALIAS=$HOME/.oh-my-zsh/custom/aliases.zsh
 echo "alias ll='ls -alF'
-alias u='sudo apt update && sudo apt -y full-upgrade && sudo apt -y autoremove ; omz update ; find ~/.oh-my-zsh/custom/{plugins,themes} -mindepth 1 -maxdepth 1 -type d -exec git -C {} pull \;'
+alias u='sudo apt update && sudo apt -y full-upgrade && sudo apt -y autoremove ; omz update ; find ~/.oh-my-zsh/custom/{plugins,themes} -mindepth 1 -maxdepth 1 -type d -exec git -C {} pull \; sudo snap refresh'
 alias qrencode='qrencode -t ansiutf8 -r'
 " > $ALIAS
 echo -e "alias upip=\"pip3 list -o | cut -f1 -d' ' | tr \\\" \\\" \\\"\\\\\\\n\\\" | awk '{if(NR>=3)print}' | cut -d' ' -f1 | xargs -n1 pip3 install -U\"" >> $ALIAS
